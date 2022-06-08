@@ -1,3 +1,7 @@
+import imp
 from django.contrib import admin
+from accounts.models import StudentProfile
 
-# Register your models here.
+
+
+

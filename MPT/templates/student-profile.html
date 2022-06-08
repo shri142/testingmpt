@@ -65,13 +65,11 @@
             </li>
           </span>
 
-          <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Message">
+          {% comment %} <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Message">
             <li class="nav-item-main">
-              <a class="nav-link" id="iconifyMessage" href="#">
-                <span class="iconify iconify-navbar" data-icon="bx:message-detail" data-width="24" data-height="26"></span>
-              </a>
+
             </li>
-          </span>
+          </span> {% endcomment %}
 
           <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="left" title="Log Out">
             <li class="nav-item-main">
@@ -86,97 +84,156 @@
     </div>
   </nav>
 
+  <!-- Dashboard Buttons -->
+  <div class="container">
+    <div class="row dashboard-buttons-1">
+      <!-- Batch Dropdown -->
+      <div class="d-flex align-items-center justify-content-center">
+        <button class="btn btn-light dropdown-toggle batch-dropdown" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Computer Science 2024 Batch
+        </button>
+        <ul class="dropdown-menu dropdown-box-shadow dropdown-ul" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#" style="color: black; text-shadow: none;">Computer Science 2025 Batch</a>
+          </li>
+          <li><a class="dropdown-item" href="#" style="color: black; text-shadow: none;">Computer Science 2026 Batch</a>
+          </li>
+          <li><a class="dropdown-item" href="#" style="color: black; text-shadow: none;">Computer Science 2027 Batch</a>
+          </li>
+        </ul>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-light meetings-btn ms-auto" data-bs-toggle="modal" data-bs-target="#Meetings">
+          <span class="iconify" data-icon="uil:calender" data-width="20" data-height="20"></span>
+          Meetings
+        </button>
+      </div>
+      <!-- Meetings modal Section-->
+      <div class="modal-body">
+
+        <!-- Modal -->
+        <div class="modal fade" id="Meetings" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Meetings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="modal-body">
+                  <div class="container-fluid">
+
+                    <nav class="">
+                      <div class="nav nav-tabs nav-justified mt-3" id="nav-tab" role="tablist">
+                        <button class="nav-link" id="nav-previous-tab" data-bs-toggle="tab" data-bs-target="#nav-previous" type="button" role="tab" aria-controls="nav-prevoius" aria-selected="false">Previous Meetings</button>
+                        <button class="nav-link active" id="nav-upcoming-tab" data-bs-toggle="tab" data-bs-target="#nav-upcoming" type="button" role="tab" aria-controls="nav-upcoming-tab" aria-selected="true">Upcoming Meetings</button>
+                      </div>
+                    </nav>
+
+                    <div class="tab-content mt-5" id="nav-tabContent">
+                      <!-- Previous -->
+                      <div class="tab-pane fade table-div" id="nav-previous" role="tabpanel" aria-labelledby="nav-previous-tab">
+                        <table class="table table-striped table-hover table-sm">
+                          <thead>
+                            <tr>
+                              <th scope="col">Date</th>
+                              <th scope="col">Time</th>
+                              <th scope="col">Duration</th>
+                              <th scope="col">Mode</th>
+                              <th scope="col">Participants</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">11-2-2022</th>
+                              <td>4:30 pm</td>
+                              <td>16 mins</td>
+                              <td>Online</td>
+                              <td>Royce Vaz</td>
+                            </tr>
+
+                            <tr>
+                              <th scope="row">11-2-2022</th>
+                              <td>4:00 pm</td>
+                              <td>20 mins</td>
+                              <td>Online</td>
+                              <td>Aleron Jaisalroyan</td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- Upcoming -->
+                      <div class="tab-pane fade show active" id="nav-upcoming" role="tabpanel" aria-labelledby="nav-upcoming-tab">
+                        <table class="table table-striped table-hover table-sm">
+                          <thead>
+                            <tr>
+                              <th scope="col">Date</th>
+                              <th scope="col">Time</th>
+                              <th scope="col">Mode</th>
+                              <th scope="col">Participants</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">2-4-2022</th>
+                              <td>4:00 pm</td>
+                              <td>Online</td>
+                              <td>Alston Fernandes</td>
+                            </tr>
+
+                            <tr>
+                              <th scope="row">2-4-2022</th>
+                              <td>4:30 pm</td>
+                              <td>Online</td>
+                              <td>Bipin Giri</td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- sidebar -->
   <div class="container-fluid mb-5">
     <div class="row">
       <div class="col-lg-3 col-md-12 col-sm-12">
         <div class="sidebar flex-shrink-0 p-3 dashboard-navigation">
-          <ul class="list-unstyled ps-0">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <button class="nav-link active nav-pills-link" id="dashboard-tab" data-bs-toggle="pill" data-bs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">
+              <span class="iconify" data-icon="ci:dashboard" data-width="20" data-height="20"></span>
+              Dashboard
+            </button>
 
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse01" aria-expanded="false">
-                Boris Edison
-              </button>
-              <div class="collapse" id="dashboard-collapse01">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">FE</a></li>
-                  <li><a href="#" class="link-dark rounded">SE</a></li>
-                  <li><a href="#" class="link-dark rounded">TE</a></li>
-                  <li><a href="#" class="link-dark rounded">BE</a></li>
-                </ul>
-              </div>
-            </li>
+            <button class="nav-link nav-pills-link" id="analytics-tab" data-bs-toggle="pill" data-bs-target="#analytics" type="button" role="tab" aria-controls="analytics" aria-selected="false">
+              <span class="iconify" data-icon="foundation:graph-pie" data-width="22" data-height="22"></span>
+              Analytics
+            </button>
 
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse02" aria-expanded="false">
-                Bipin Giri
-              </button>
-              <div class="collapse" id="dashboard-collapse02">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">FE</a></li>
-                  <li><a href="#" class="link-dark rounded">SE</a></li>
-                  <li><a href="#" class="link-dark rounded">TE</a></li>
-                  <li><a href="#" class="link-dark rounded">BE</a></li>
-                </ul>
-              </div>
-            </li>
+            <button class="nav-link nav-pills-link" id="analytics-tab" data-bs-toggle="pill" data-bs-target="#calender" type="button" role="tab" aria-controls="analytics" aria-selected="false">
+              <span class="iconify" data-icon="clarity:date-solid" data-width="20" data-height="20"></span>
+              Calender
+            </button>
 
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse03" aria-expanded="false">
-                Alston Fernandes
-              </button>
-              <div class="collapse" id="dashboard-collapse03">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">FE</a></li>
-                  <li><a href="#" class="link-dark rounded">SE</a></li>
-                  <li><a href="#" class="link-dark rounded">TE</a></li>
-                  <li><a href="#" class="link-dark rounded">BE</a></li>
-                </ul>
-              </div>
-            </li>
+            <button class="nav-link nav-pills-link" id="analytics-tab" data-bs-toggle="pill" data-bs-target="#calender" type="button" role="tab" aria-controls="analytics" aria-selected="false">
+              <span class="iconify" data-icon="bx:message-detail" data-width="20" data-height="20"></span>
+              Message
+            </button>
 
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse04" aria-expanded="false">
-                Hrishikesh Panigrahi
-              </button>
-              <div class="collapse" id="dashboard-collapse04">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">FE</a></li>
-                  <li><a href="#" class="link-dark rounded">SE</a></li>
-                  <li><a href="#" class="link-dark rounded">TE</a></li>
-                  <li><a href="#" class="link-dark rounded">BE</a></li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse05" aria-expanded="false">
-                Royce Vaz
-              </button>
-              <div class="collapse" id="dashboard-collapse05">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">FE</a></li>
-                  <li><a href="#" class="link-dark rounded">SE</a></li>
-                  <li><a href="#" class="link-dark rounded">TE</a></li>
-                  <li><a href="#" class="link-dark rounded">BE</a></li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse06" aria-expanded="false">
-                Aleron Jaisalroyan
-              </button>
-              <div class="collapse" id="dashboard-collapse06">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-dark rounded">FE</a></li>
-                  <li><a href="#" class="link-dark rounded">SE</a></li>
-                  <li><a href="#" class="link-dark rounded">TE</a></li>
-                  <li><a href="#" class="link-dark rounded">BE</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+          </div>
         </div>
       </div>
 
@@ -185,191 +242,694 @@
       {% comment %} {% for user in users %} {% endcomment %}
       <div class="col-lg-9 col-md-12 col-sm-12">
         <div class="sidebar flex-shrink-0 p-3 student-grid">
-          <section class="m-5">
-            <span class="stu-prof-info">
-              <div class="stu-info">
-                <div class="row">
-                  <div class="col-lg-4 col-md-6 col-sm-6 d-flex align-items-center" style="justify-content: center;">
-                    <img src="{% static 'content/mentee/boris.png' %}" class="stu-img" style="height: 22vh" alt="hero">
-                  </div>
+          <div class="tab-content" id="tabContent">
 
-                  <div class="col-lg-4 col-md-6 col-sm-6 align-items-center mt-2" style="justify-content: center; align-items: center;">
-                    <p style="font-size: 16px">Name: Boris Edison</p>
-                    <p style="font-size: 16px">Roll no.: 14</p>
-                    <p style="font-size: 16px">Year: SE</p>
-                    <p style="font-size: 16px">Dept.: Comp</p>
-                    <p style="font-size: 16px">DOB: 28/09/2001</p>
-                    <p style="font-size: 16px">Address: Bhandup</p>
-                  </div>
+            <div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="v-pills-home-tab">
 
-                  <div class="col-lg-4">
-                  </div>
+              <section class="m-5 mt-1">
+                <span class="stu-prof-info">
+                  <div class="stu-info">
 
-                </div>
-              </div>
-            </span>
+                    <!--Student Name-->
+                    <p style="font-size: 25px; padding-bottom: 1rem; display: flex; justify-content: center;"><strong>Boris Edison</strong></p>
 
-            <!-- Student Info -->
-            <p style="font-size: 25px; padding-top: 2rem;"><strong>Details</strong></p>
+                    <!--Edit Student Details Button-->
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                      <button type="button" class="btn btn-sm ms-auto select-btn" data-bs-toggle="modal" data-bs-target="#edit-details"
+                        style="width: auto; border-radius: 7px; background-color: #112D4E; color: white; box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5);">
+                        <span class="iconify" data-icon="mdi:account-edit" data-width="20" data-height="20"></span>
+                        Edit Details
+                      </button>
+                    </div>
 
-            <div class="accordion accordion-flush" style="border-radius: 4px" id="accordionFlushExample">
+                    <!-- Edit Student Details Modal -->
+                    <div class="modal fade" id="edit-details" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    Basic Information
-                  </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                  </div>
-                </div>
-              </div>
+                            <div class="row">
+                              <div class="col-sm-3" id="spy">
+                                <ul class="nav nav-pills flex-column">
+                                  <li class="nav-item"><a class="nav-link active" href="#basic">Basic Information</a></li>
+                                  <li class="nav-item"><a class="nav-link" href="#guardian">Guardian Information</a></li>
+                                  <li class="nav-item"><a class="nav-link" href="#health">Health Information</a></li>
+                                  <li class="nav-item"><a class="nav-link" href="#goal">Goals, Hobbies and Extra Curriculars</a></li>
+                                  <li class="nav-item"><a class="nav-link" href="#marks">Marks</a></li>
 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                    Health Information
-                  </button>
-                </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                  </div>
-                </div>
-              </div>
+                                </ul>
+                              </div>
+                              <div class="col-sm-9 scrollspy-example" data-spy="scroll" data-target="#spy">
 
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                    Goals
-                  </button>
-                </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                  </div>
-                </div>
-              </div>
+                                <div id="basic">
+                                  <p style="font-size: 20px;"><strong>Basic Information</strong></p>
 
-            </div>
+                                  <div class="row pt-2">
+                                    <div class="col-6">
+                                      <div class="form-group col-md-10">
+                                        <label for="inputFname">First Name</label>
+                                        <input type="text" name='fName' class="form-control" id="inputFname" placeholder="First Name" value='{{user.first_name}}'>
+                                      </div>
+                                    </div>
 
-            <!-- Year heading -->
+                                    <div class="col-6">
+                                      <div class="form-group col-md-10">
+                                        <label for="inputMname">Middle Name</label>
+                                        <input type="text" name='mName' class="form-control" id="inputMname" placeholder="Middle Name" value=''>
+                                      </div>
+                                    </div>
+                                  </div>
 
-            <p style="font-size: 25px; padding-top: 2rem;"><strong>First Year</strong></p>
+                                  <div class="row pt-2">
+                                    <div class="col-6">
+                                      <div class="form-group col-md-10">
+                                        <label for="inputLname">Last Name</label>
+                                        <input type="text" name='lName' class="form-control" id="inputLname" placeholder="Last Name" value=''>
+                                      </div>
+                                    </div>
 
-          </section>
+                                    <div class="col-6">
+                                      <div class="form-group col-md-10">
+                                        <label for="inputRno">Roll No</label>
+                                        <input type="number" name='rNo' id="inputRno" class="form-control" placeholder="Roll No" min="1" max="70" value=''>
+                                      </div>
+                                    </div>
+                                  </div>
 
-          <!-- Graph-->
-          <section class="graphs">
-            <span>
-              <canvas id="donutGraphSem1" style="width:82%;"></canvas>
-              <canvas id="barGraphSem1" class="pt-2" style=""></canvas>
-            </span>
-            <span>
-              <canvas id="donutGraphSem2" style="width: 82%"></canvas>
-              <canvas id="barGraphSem2" class="pt-2" style=""></canvas>
-            </span>
-          </section>
+                                  <div class="row pt-2">
+                                    <div class="col-6">
+                                      <div class="form-group col-md-10">
+                                        <label for="inputYear">Year</label> <br>
+                                        <select id="inputYear" style="height: 36px; width: 70px" name="year">
+                                          <option value="FE">FE</option>
+                                          <option value="SE">SE</option>
+                                          <option value="TE">TE</option>
+                                          <option value="BE">BE</option>
+                                        </select>
+                                      </div>
+                                    </div>
 
-          <!-- Session Records Button -->
-          <div class="d-flex" style="padding: 2.3vh;">
-            <button type="button" style="background-color:#112D4E; color:white; border-radius: 7px" class="btn btn-sm meetings-btn ms-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              <span style="color: white;" class="iconify" data-icon="akar-icons:circle-plus" data-width="19" data-height="20"></span>
-              Session Records
-            </button>
-          </div>
+                                    <div class="col-6">
+                                      <div class="form-group col-md-10">
+                                        <label for="inputDept">Department</label> <br>
+                                        <select id="inputDept" style="height: 36px;" name="dept">
+                                          <option value="Computer">Computer</option>
+                                          <option value="IT">IT</option>
+                                          <option value="EXTC">EXTC</option>
+                                          <option value="Mechanical">Mechanical</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
 
-          <!-- Session Records modal Section-->
-          <div class="modal-body">
+                                  <div class="row pt-2">
+                                    <div class="col-6">
+                                      <div class="form-group col-md-10">
+                                        <label for="inputDob">Date Of Birth</label>
+                                        <input type="date" name='dob' id="inputDob" class="form-control" placeholder="Date Of Birth" min="1" max="70" value=''>
+                                        </select>
+                                      </div>
+                                    </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel"><strong>Session Records</strong></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="modal-body">
-                      <div class="container-fluid">
+                                    <div class="col-6">
+                                      <div class="form-group col-md-10">
+                                        <label for="inputAddress">Address</label>
+                                        <input type="text" name='Address' class="form-control" id="inputAddress" placeholder="Address" value=''>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
 
-                        <table class="table table-striped table-hover ">
-                          <thead>
-                            <tr>
-                              <th scope="col">Title</th>
-                              <th scope="col">Date</th>
-                              <th scope="col">Timing</th>
-                              <th scope="col">Duration</th>
-                              <th scope="col">Minutes</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">Post Orientation</th>
-                              <td>11-2-2022</td>
-                              <td>4:30 pm</td>
-                              <td>16 mins</td>
-                              <td>
-                                <button type="button" style=" max-height: 23px;background-color:#112D4E; color:white; border-radius: 7px; display: flex; align-items: center; justify-content: center;" class="btn btn-sm meetings-btn">
-                                  <span class="iconify" data-icon="gg:notes" data-width="15" data-height="15"></span>
-                                  &nbsp;Note
-                                </button>
-                              </td>
-                            </tr>
+                                </div>
 
-                            <tr>
-                              <th scope="row">Post Orientation</th>
-                              <td>11-2-2022</td>
-                              <td>4:30 pm</td>
-                              <td>16 mins</td>
-                              <td>
-                                <button type="button" style=" max-height: 23px;background-color:#112D4E; color:white; border-radius: 7px; display: flex; align-items: center; justify-content: center;" class="btn btn-sm meetings-btn">
-                                  <span class="iconify" data-icon="gg:notes" data-width="15" data-height="15"></span>
-                                  &nbsp;Note
-                                </button>
-                              </td>
-                            </tr>
+                                <div id="guardian">
+                                  <p style="font-size: 20px; padding-top: 2rem;"><strong>Guardian Information</strong></p>
 
-                            <tr>
-                              <th scope="row">Post Orientation</th>
-                              <td>11-2-2022</td>
-                              <td>4:30 pm</td>
-                              <td>16 mins</td>
-                              <td>
-                                <button type="button" style=" max-height: 23px;background-color:#112D4E; color:white; border-radius: 7px; display: flex; align-items: center; justify-content: center;" class="btn btn-sm meetings-btn">
-                                  <span class="iconify" data-icon="gg:notes" data-width="15" data-height="15"></span>
-                                  &nbsp;Note
-                                </button>
-                              </td>
-                            </tr>
+                                </div>
 
-                            <tr>
-                              <th scope="row">Post Orientation</th>
-                              <td>11-2-2022</td>
-                              <td>4:30 pm</td>
-                              <td>16 mins</td>
-                              <td>
-                                <button type="button" style=" max-height: 23px;background-color:#112D4E; color:white; border-radius: 7px; display: flex; align-items: center; justify-content: center;" class="btn btn-sm meetings-btn">
-                                  <span class="iconify" data-icon="gg:notes" data-width="15" data-height="15"></span>
-                                  &nbsp;Note
-                                </button>
-                              </td>
-                            </tr>
+                                <div id="health">
+                                  <p style="font-size: 20px; padding-top: 2rem;"><strong>Health Information</strong></p>
 
-                          </tbody>
-                        </table>
+                                </div>
+
+                                <div id="goal">
+                                  <p style="font-size: 20px; padding-top: 2rem;"><strong>Goals, Hobbies and Extra Curriculars</strong></p>
+
+                                </div>
+
+                                <div id="marks">
+                                  <p style="font-size: 20px; padding-top: 2rem;"><strong>Marks</strong></p>
+
+                                </div>
+
+                              </div>
+                            </div>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+                            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+
+                      <!--Student Image-->
+                      <div class="col-lg-2 col-md-12 col-sm-12 d-flex align-items-center" style="justify-content: center;">
+                        <img src="{% static 'content/mentee/boris.png' %}" class="stu-img" style="height: 22vh" alt="hero">
+                      </div>
+
+                      <!-- Student Info -->
+                      <div class="col-lg-10 accordion-div">
+                        <div class="accordion accordion-flush" style="border-radius: 4px" id="accordionFlushExample">
+
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingBasic">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseBasic" aria-expanded="false" aria-controls="flush-collapseBasic">
+                                Basic Information
+                              </button>
+                            </h2>
+                            <div id="flush-collapseBasic" class="accordion-collapse collapse" aria-labelledby="flush-headingBasic" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body">
+
+                                <div class="row">
+
+                                  <!--Left Column-->
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+                                    <div class="row">
+
+                                      <!--Name-->
+                                      <div class="col-6">
+                                        <p><strong>Name</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>Boris Edison</p>
+                                      </div>
+
+                                      <!--Rollno-->
+                                      <div class="col-6">
+                                        <p><strong>Roll no</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>14</p>
+                                      </div>
+
+                                      <!--Year-->
+                                      <div class="col-6">
+                                        <p><strong>Year</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>SE</p>
+                                      </div>
+
+                                      <!--Department-->
+                                      <div class="col-6">
+                                        <p><strong>Department</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>Computer</p>
+                                      </div>
+
+                                      <!--DOB-->
+                                      <div class="col-6">
+                                        <p><strong>Date of Birth</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>28/09/2001</p>
+                                      </div>
+
+                                      <!--Address-->
+                                      <div class="col-6">
+                                        <p><strong>Address</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>Bhandup</p>
+                                      </div>
+
+                                    </div>
+                                  </div>
+
+                                  <!--Right Column-->
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+                                    <div class="row">
+
+                                      <!--Year Of Admission-->
+                                      <div class="col-6">
+                                        <p><strong>Year Of Admission</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Gender-->
+                                      <div class="col-6">
+                                        <p><strong>Gender</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Blood Group-->
+                                      <div class="col-6">
+                                        <p><strong>Blood Group</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Mother Tongue-->
+                                      <div class="col-6">
+                                        <p><strong>Mother Tongue</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Religion-->
+                                      <div class="col-6">
+                                        <p><strong>Religion</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Contact no.-->
+                                      <div class="col-6">
+                                        <p><strong>Contant no</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingGuardian">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseGuardian" aria-expanded="false" aria-controls="flush-collapseGuardian">
+                                Guardian Information
+                              </button>
+                            </h2>
+                            <div id="flush-collapseGuardian" class="accordion-collapse collapse" aria-labelledby="flush-headingGuardian" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body">
+
+                                <div class="row">
+
+                                  <!--Left Column-->
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                    <p style="display: flex; justify-content: center;"><strong>Mother</strong></p>
+                                    <div class="row">
+
+                                      <!--Name-->
+                                      <div class="col-6">
+                                        <p><strong>Name</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Highest Qualification-->
+                                      <div class="col-6">
+                                        <p><strong>Highest Qualification</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Yearly Income-->
+                                      <div class="col-6">
+                                        <p><strong>Yearly Income</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                    </div>
+                                  </div>
+
+                                  <!--Right Column-->
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                    <p style="display: flex; justify-content: center;"><strong>Father</strong></p>
+
+                                    <div class="row">
+
+                                      <!--Name-->
+                                      <div class="col-6">
+                                        <p><strong>Name</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Highest Qualification-->
+                                      <div class="col-6">
+                                        <p><strong>Highest Qualification</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Yearly Income-->
+                                      <div class="col-6">
+                                        <p><strong>Yearly Income</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                    </div>
+                                  </div>
+
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingHealth">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseHealth" aria-expanded="false" aria-controls="flush-collapseHealth">
+                                Health Information
+                              </button>
+                            </h2>
+                            <div id="flush-collapseHealth" class="accordion-collapse collapse" aria-labelledby="flush-headingHealth" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body">
+
+                                <div class="row">
+
+                                  <!--Left Column-->
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                    <div class="row">
+
+                                      <!--Addiction-->
+                                      <div class="col-6">
+                                        <p><strong>Addiction</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Illness-->
+                                      <div class="col-6">
+                                        <p><strong>Illness</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Phobia-->
+                                      <div class="col-6">
+                                        <p><strong>Phobia</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Treatment-->
+                                      <div class="col-6">
+                                        <p><strong>Treatment</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                    </div>
+                                  </div>
+
+                                  <!--Right Column-->
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                    <div class="row">
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingGoal">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseGoal" aria-expanded="false" aria-controls="flush-collapseGoal">
+                                Goals, Hobbies and Extra Curriculars
+                              </button>
+                            </h2>
+                            <div id="flush-collapseGoal" class="accordion-collapse collapse" aria-labelledby="flush-headingGoal" data-bs-parent="#accordionFlushExample">
+                              <div class="accordion-body">
+
+                                <div class="row">
+
+                                  <!--Left Column-->
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                    <div class="row">
+
+                                      <!--Aim For Life-->
+                                      <div class="col-6">
+                                        <p><strong>Aim For Life</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Reason For Joining Engineering-->
+                                      <div class="col-6">
+                                        <p><strong>Reason For joining Engineering</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Hobbies-->
+                                      <div class="col-6">
+                                        <p><strong>Hobbies</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                      <!--Achievements-->
+                                      <div class="col-6">
+                                        <p><strong>Achievements</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <p>-</p>
+                                      </div>
+
+                                    </div>
+                                  </div>
+
+                                  <!--Right Column-->
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+
+                                    <div class="row">
+
+                                      <!--Club-->
+                                      <div class="col-6">
+                                        <p><strong>Club</strong></p>
+                                      </div>
+
+                                      <div class="col-6">
+
+                                        <ul>
+                                          <li>
+                                            <p>Math Club</p>
+                                          </li>
+
+                                          <li>
+                                            <p>Dance Club</p>
+                                          </li>
+
+                                          <li>
+                                            <p>Physics Club</p>
+                                          </li>
+                                        </ul>
+
+                                      </div>
+
+                                      <!--Organization-->
+                                      <div class="col-6">
+                                        <p><strong>Organization</strong></p>
+                                      </div>
+                                      <div class="col-6">
+                                        <ul>
+                                          <li>
+                                            <p>ACM</p>
+                                          </li>
+
+                                          <li>
+                                            <p>DBIT SevaTech</p>
+                                          </li>
+
+                                        </ul>
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
                       </div>
 
                     </div>
+                  </div>
+                </span>
 
+                <!-- Year heading -->
+
+                <p style="font-size: 25px; padding-top: 2rem;"><strong>First Year</strong></p>
+
+              </section>
+
+              <!-- Graph-->
+              <section class="graphs">
+                <span>
+                  <canvas id="donutGraphSem1" style="width:82%;"></canvas>
+                  <canvas id="barGraphSem1" class="pt-2" style=""></canvas>
+                </span>
+                <span>
+                  <canvas id="donutGraphSem2" style="width: 82%"></canvas>
+                  <canvas id="barGraphSem2" class="pt-2" style=""></canvas>
+                </span>
+              </section>
+
+              <!-- Session Records Button -->
+              <div class="d-flex" style="padding: 2.3vh;">
+                <button type="button" style="background-color:#112D4E; color:white; border-radius: 7px" class="btn btn-sm meetings-btn ms-auto" data-bs-toggle="modal" data-bs-target="#session-records">
+                  <span style="color: white;" class="iconify" data-icon="akar-icons:circle-plus" data-width="19" data-height="20"></span>
+                  Session Records
+                </button>
+              </div>
+
+              <!-- Session Records modal Section-->
+              <div class="modal-body">
+
+                <!-- Modal -->
+                <div class="modal fade" id="session-records" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel"><strong>Session Records</strong></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="modal-body">
+                          <div class="container-fluid">
+
+                            <table class="table table-striped table-hover ">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Title</th>
+                                  <th scope="col">Date</th>
+                                  <th scope="col">Timing</th>
+                                  <th scope="col">Duration</th>
+                                  <th scope="col">Minutes</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">Post Orientation</th>
+                                  <td>11-2-2022</td>
+                                  <td>4:30 pm</td>
+                                  <td>16 mins</td>
+                                  <td>
+                                    <button type="button" style=" max-height: 23px;background-color:#112D4E; color:white; border-radius: 7px; display: flex; align-items: center; justify-content: center;" class="btn btn-sm meetings-btn">
+                                      <span class="iconify" data-icon="gg:notes" data-width="15" data-height="15"></span>
+                                      &nbsp;Note
+                                    </button>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <th scope="row">Post Orientation</th>
+                                  <td>11-2-2022</td>
+                                  <td>4:30 pm</td>
+                                  <td>16 mins</td>
+                                  <td>
+                                    <button type="button" style=" max-height: 23px;background-color:#112D4E; color:white; border-radius: 7px; display: flex; align-items: center; justify-content: center;" class="btn btn-sm meetings-btn">
+                                      <span class="iconify" data-icon="gg:notes" data-width="15" data-height="15"></span>
+                                      &nbsp;Note
+                                    </button>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <th scope="row">Post Orientation</th>
+                                  <td>11-2-2022</td>
+                                  <td>4:30 pm</td>
+                                  <td>16 mins</td>
+                                  <td>
+                                    <button type="button" style=" max-height: 23px;background-color:#112D4E; color:white; border-radius: 7px; display: flex; align-items: center; justify-content: center;" class="btn btn-sm meetings-btn">
+                                      <span class="iconify" data-icon="gg:notes" data-width="15" data-height="15"></span>
+                                      &nbsp;Note
+                                    </button>
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <th scope="row">Post Orientation</th>
+                                  <td>11-2-2022</td>
+                                  <td>4:30 pm</td>
+                                  <td>16 mins</td>
+                                  <td>
+                                    <button type="button" style=" max-height: 23px;background-color:#112D4E; color:white; border-radius: 7px; display: flex; align-items: center; justify-content: center;" class="btn btn-sm meetings-btn">
+                                      <span class="iconify" data-icon="gg:notes" data-width="15" data-height="15"></span>
+                                      &nbsp;Note
+                                    </button>
+                                  </td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div class="tab-pane fade" id="analytics" role="tabpanel" aria-labelledby="analytics">
+
+            </div>
+
+            <div class="tab-pane fade" id="calender" role="tabpanel" aria-labelledby="calender">
+
+            </div>
+
+            <div class="tab-pane fade" id="message" role="tabpanel" aria-labelledby="message">
+
+            </div>
+
           </div>
+
         </div>
       </div>
       {% comment %} {% endfor %} {% endcomment %}

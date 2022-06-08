@@ -6,29 +6,63 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
 from django.views import generic
-from AdminPage.models import Profile
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
+from accounts.models import StudentProfile, MentorProfile
+
 
 def edit(request):
-    # user=User.objects.get(request.user.id)
     context={}
-    # user_id = User.request.user.id
+    if request.user.is_staff:
+            profile = MentorProfile.objects.get(user__id=request.user.id)
+            if request.method=="POST":
+        
+                fName = request.POST['fName']
+                Lname= request.POST['LName']
+                username= request.POST['username']
+                department= request.POST['department']
+                # phone= request.POST['phone']
+                # email= request.POST['email']
+                # email1= request.POST['email1']
+                # password1= request.POST['password1']
+                # password2= request.POST['password2']
+                user = User.objects.get(id=request.user.id)
+                user.first_name= fName
+                user.username=username
+                user.last_name=Lname
+                user.save()
 
-    if request.method=="POST":
-        fName = request.POST['fName']
-        # Lname= request.POST['Lname']
-        username= request.POST['username']
-        # department= request.POST['department']
-        # phone= request.POST['phone']
-        # email= request.POST['email']
-        # email1= request.POST['email1']
-        # password1= request.POST['password1']
-        # password2= request.POST['password2']
-        user = Profile.objects.get(id=request.user.id)
-        user.first_name= fName
-        user.save()
-        return redirect('/facultydashboard')
+                profile.Branch = department
+                profile.save()
+                context={'profile': profile}
+                return redirect('/facultydashboard')
+            else:
+                return render(request,'edit.html', context)
 
     else:
-        return render(request,'edit.html')
+        profile = StudentProfile.objects.get(user__id=request.user.id)
+        if request.method=="POST":
+            fName = request.POST['fName']
+            Lname = request.POST['LName']
+            username = request.POST['username']
+            department = request.POST['department']
+            # phone= request.POST['phone']
+            # email= request.POST['email']
+            # email1= request.POST['email1']
+            # password1= request.POST['password1']
+            # password2= request.POST['password2']
+            user = User.objects.get(id=request.user.id)
+            user.first_name= fName
+            user.username=username
+            user.last_name=Lname
+            user.save()
+
+            profile.department= department
+            profile.save()
+            context={'profile': profile}
+            return redirect('/studentdashboard')
+
+
+        else:
+            return render(request,'edit.html', context)
 
