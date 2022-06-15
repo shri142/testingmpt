@@ -33,7 +33,7 @@ INSTALLED_APPS = [
     'Login.apps.LoginConfig',
     'EditUser.apps.EdituserConfig',
     'accounts.apps.AccountsConfig',
-    
+    'FacultyDashboard.apps.FacultydashboardConfig',   
 ]
 
 MIDDLEWARE = [
@@ -80,6 +80,19 @@ DATABASES = {
 }
 
 
+#set mysql as default database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'mpt',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '3307', #change to 3306 if you are using mysql instead of mysql
+#     }
+# }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -114,7 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'MPT/static')]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
@@ -127,3 +140,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend', # this is default
     # 'guardian.backends.ObjectPermissionBackend',
 )
+
+AUTH_USER_MODEL='accounts.User'
+MEDIA_URL = '/media/'
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
